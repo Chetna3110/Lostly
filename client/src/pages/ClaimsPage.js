@@ -10,7 +10,7 @@ export default function ClaimsPage() {
   const fetchClaims = async () => {
     try {
       const res = await axios.get(
-        'http://localhost:5000/api/claims/owner',
+        'https://lostly.onrender.com/api/claims/owner',
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -28,7 +28,7 @@ export default function ClaimsPage() {
   const handleUpdate = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/claims/${id}`,
+        `https://lostly.onrender.com/api/claims/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

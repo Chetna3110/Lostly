@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
+import API from "../services/api";
+
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '', year: '',branch: '',enrollmentNumber: '' });
@@ -17,7 +18,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', form);
+      const res = await API.post("/api/auth/register", form);
       login(res.data.user, res.data.token);
       toast.success('Account created successfully!');
       navigate('/dashboard');

@@ -14,7 +14,7 @@ export default function BrowseItems() {
   const fetchItems = useCallback(async () => {
     setLoading(true);
     try {
-      let url = 'http://localhost:5000/api/items';
+      let url = 'https://lostly.onrender.com/api/items';
       if (filter !== 'all') url += `?type=${filter}`;
       const res = await axios.get(url);
       setItems(res.data);

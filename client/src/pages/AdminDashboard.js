@@ -24,7 +24,7 @@ export default function AdminDashboard() {
     const fetchClaims = async () => {
       try {
         const res = await axios.get(
-          'http://localhost:5000/api/claims/owner',
+          'https://lostly.onrender.com/api/claims/owner',
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -41,7 +41,7 @@ export default function AdminDashboard() {
   const handleClaimAction = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/claims/${id}`,
+        `https://lostly.onrender.com/api/claims/${id}`,
         { status },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -58,13 +58,13 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const [statsRes, usersRes, itemsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/admin/stats', {
+        axios.get('https://lostly.onrender.com/api/admin/stats', {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get('http://localhost:5000/api/admin/users', {
+        axios.get('https://lostly.onrender.com/api/admin/users', {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get('http://localhost:5000/api/admin/items', {
+        axios.get('https://lostly.onrender.com/api/admin/items', {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);
@@ -81,7 +81,7 @@ export default function AdminDashboard() {
 
   const fetchItems = useCallback(async () => {
     try {
-      let url = 'http://localhost:5000/api/admin/items';
+      let url = 'https://lostly.onrender.com/api/admin/items';
       if (itemFilter !== 'all') url += `?status=${itemFilter}`;
 
       const res = await axios.get(url, {
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
     if (!window.confirm('Delete user?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/users/${id}`, {
+      await axios.delete(`https://lostly.onrender.com/api/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('User deleted');
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
   const handlePromoteUser = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/users/${id}/promote`,
+        `https://lostly.onrender.com/api/admin/users/${id}/promote`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
     if (!window.confirm('Delete item?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/admin/items/${id}`, {
+      await axios.delete(`https://lostly.onrender.com/api/admin/items/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Deleted');
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
   const handleResolveItem = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/items/${id}/resolve`,
+        `https://lostly.onrender.com/api/admin/items/${id}/resolve`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
   const handleApproveItem = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/items/${id}/approve`,
+        `https://lostly.onrender.com/api/admin/items/${id}/approve`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

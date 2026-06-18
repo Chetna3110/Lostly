@@ -18,7 +18,7 @@ export default function MyPosts() {
 
   const fetchMyPosts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/items/my/posts', {
+      const res = await axios.get('https://lostly.onrender.com/api/items/my/posts', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setItems(res.data);
@@ -32,7 +32,7 @@ export default function MyPosts() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this item?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/items/${id}`, {
+      await axios.delete(`https://lostly.onrender.com/api/items/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Item deleted');

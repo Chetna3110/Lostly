@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   const fetchStats = useCallback(async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/items');
+      const res = await axios.get('https://lostly.onrender.com/api/items');
       const items = res.data;
 
       setStats({

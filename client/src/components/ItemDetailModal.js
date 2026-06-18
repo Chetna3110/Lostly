@@ -15,7 +15,7 @@ const isOwner = item?.postedBy?._id === user?.id;  const isAdmin = user?.role ==
     if (!window.confirm('Delete this item permanently?')) return;
     
     try {
-      await axios.delete(`http://localhost:5000/api/items/${item._id}`, {
+      await axios.delete(`https://lostly.onrender.com/api/items/${item._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Item deleted successfully');
@@ -31,7 +31,7 @@ const isOwner = item?.postedBy?._id === user?.id;  const isAdmin = user?.role ==
     
     try {
       await axios.put(
-        `http://localhost:5000/api/items/${item._id}`,
+        `https://lostly.onrender.com/api/items/${item._id}`,
         { status: 'resolved' },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -49,7 +49,7 @@ const isOwner = item?.postedBy?._id === user?.id;  const isAdmin = user?.role ==
     setSubmitting(true);
     try {
       await axios.put(
-        `http://localhost:5000/api/items/${item._id}`,
+        `https://lostly.onrender.com/api/items/${item._id}`,
         { status: 'pending_admin_review' },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -66,7 +66,7 @@ const isOwner = item?.postedBy?._id === user?.id;  const isAdmin = user?.role ==
   const handleClaim = async (itemId) => {
   try {
     await axios.post(
-      'http://localhost:5000/api/claims',
+      'https://lostly.onrender.com/api/claims',
       { itemId, message: 'This belongs to me' },
       { headers: { Authorization: `Bearer ${token}` } }
     );
