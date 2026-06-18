@@ -8,7 +8,7 @@
   min-height: 100vh;
   padding: 40px;
   margin-top: 90px;
-  background: transparent; /* ✅ IMPORTANT */
+  background: transparent; 
   color: #0f172a;
   position: relative;
   overflow: hidden;
