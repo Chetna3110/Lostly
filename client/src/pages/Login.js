@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import API from "../services/api";
 
 
 export default function Login() {
@@ -19,7 +18,10 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await API.post("/api/auth/login", form);      login(res.data.user, res.data.token);
+const res = await axios.post(
+  "https://lostly.onrender.com/api/auth/login",
+  form
+);      login(res.data.user, res.data.token);
       toast.success('Welcome back!');
       navigate('/');
     } catch (err) {

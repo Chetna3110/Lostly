@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import API from "../services/api";
-
+import axios from "axios";
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '', year: '',branch: '',enrollmentNumber: '' });
@@ -18,8 +17,10 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await API.post("/api/auth/register", form);
-      login(res.data.user, res.data.token);
+const res = await axios.post(
+  "https://lostly.onrender.com/api/auth/register",
+  form
+);      login(res.data.user, res.data.token);
       toast.success('Account created successfully!');
       navigate('/dashboard');
     } catch (err) {
