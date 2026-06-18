@@ -1,4 +1,4 @@
-# Lostly - Smart Campus Lost & Found System
+<img width="1548" height="510" alt="image" src="https://github.com/user-attachments/assets/91194967-8fb1-474d-be57-2078e5c58db4" /># Lostly - Smart Campus Lost & Found System
 
 Lostly is a full-stack MERN application that helps students report, search, and recover lost items within their campus community.
 
@@ -157,7 +157,7 @@ npm run dev
 ##  Author
 
 **Chetna Chaudhary**
-
+project is live at : https://lostly-eosin.vercel.app/
 GitHub: https://github.com/Chetna3110
 
 ---
