@@ -3,8 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' });

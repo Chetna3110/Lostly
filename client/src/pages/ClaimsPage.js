@@ -20,7 +20,7 @@ export default function ClaimsPage() {
       toast.error('Failed to load claims');
     }
   };
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchClaims();
   }, []);
